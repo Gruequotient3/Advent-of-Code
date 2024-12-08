@@ -89,7 +89,5 @@ let count_safe (rep : report list) =
     List.fold_left (fun x y -> match y with |Safe _ -> 1 + x |Unsafe _ -> x) 0 rep
 
 
-
-
 let nb_safe1 path = (count_safe (set_security (get_int_data path)));;
 
