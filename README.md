@@ -16,5 +16,5 @@ Current progress :
 
 ### C++
 
-Not started yet:w
+Not started yet
 
