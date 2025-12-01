@@ -1,8 +1,0 @@
-lib: [
-  "_build/install/default/lib/day1/META"
-  "_build/install/default/lib/day1/dune-package"
-  "_build/install/default/lib/day1/opam"
-]
-bin: [
-  "_build/install/default/bin/day1"
-]
