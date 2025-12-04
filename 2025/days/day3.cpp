@@ -1,9 +1,10 @@
 #include "day3.hpp"
 
 #include <iostream>
+#include <cstdio>
 #include <fstream>
 #include <string>
-
+#include <array>
 
 
 using namespace Day3;
@@ -20,11 +21,53 @@ int Day3::Banks::findLargest2Digits(){
     return largest;
 }
 
+int Day3::Banks::findNextDigit(int prevIndex, int pos, int& index){
+    int i = voltage.size() - 12 + pos;
+    unsigned char max = 0;
+    index = i;
+    while (i > prevIndex){
+        if (voltage[i] >= max){
+            index = i;
+            max = voltage[i];
+        }
+        i--;
+    }
+    return max;
+}
+
+ullint Day3::Banks::findLargest12Digits(){
+    std::array<unsigned int, 12> digits{};
+    ullint largest = 0;
+    int index = -1;
+    for (int i = 0; i < 12; ++i){
+        digits[i] = findNextDigit(index, i, index);
+    }
+    
+    for (int i = 0; i < 12; ++i){
+        largest += (ullint)digits[i];
+        if (i < 11) largest *= 10;
+    }
+    return largest;
+}
+
+
 int Day3::part1(){
     int sumVoltage = 0;
     std::vector<Banks> banks = getData();
+    
     for (Banks bank : banks){
         sumVoltage += bank.findLargest2Digits();
+    }
+    return sumVoltage;
+}
+
+
+ullint Day3::part2(){
+    ullint sumVoltage = 0;
+    std::vector<Banks> banks = getData();
+    for (Banks bank: banks){
+        ullint num = bank.findLargest12Digits();
+        sumVoltage += num;
     }
     return sumVoltage;
 }

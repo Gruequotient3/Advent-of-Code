@@ -11,6 +11,7 @@ int main(){
     
     printf("\n--------- Day 3 --------\n");
     printf("Part 1 : %d\n", Day3::part1());
+    printf("Part 2 : %lld\n", Day3::part2());
     
 
     return 0;

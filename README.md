@@ -7,4 +7,4 @@ Git of my progression in Advent of code's challenges
 
 Current progress :
 - Day 1 : **complete** (2 stars)
-
+- Day 2 : **complete** (2 stars)
